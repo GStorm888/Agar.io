@@ -11,5 +11,3 @@ class Object:
 
     def draw(self, win):
         object_circle = pygame.draw.circle(win, self.color, (self.x, self.y), self.mass)
-
-

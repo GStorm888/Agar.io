@@ -4,7 +4,6 @@ import sys
 import settings
 from object import Object
 
-
 class Game:
     pygame.init()
     pygame.display.set_caption("Agar.io")
