@@ -3,7 +3,7 @@ WINDOW_HEIGHT = 600
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
-MAX_MASS = 20
+MAX_MASS = 30
 MIN_MASS = 1
 COLOR = [BLACK,                 # black
         (0, 0, 255, 255),       # blue
