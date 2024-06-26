@@ -25,7 +25,9 @@ class Game:
             Game.window.fill((255, 255, 255))
             pygame.draw.rect(Game.window, settings.RED, Object.object_circle)
             pygame.display.flip()
-
+    
+    def draw():
+        ...
 
     def render(self):
         self.main_window.blit(self.field.render(), (0, 0))
@@ -46,3 +48,5 @@ class Game:
 
         pygame.quit()
         sys.exit()
+game = Game()
+game.main_loop
