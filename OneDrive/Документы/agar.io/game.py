@@ -21,8 +21,8 @@ class Game:
                     run = False
 
             mouse_pos = pygame.mouse.get_pos()
-            Object.object_circle.center = mouse_pos
-            Game.window.fill((255, 255, 255))
+            Object.center = mouse_pos
+            Game.main_window.fill((255, 255, 255))
             pygame.draw.rect(Game.window, settings.RED, Object.object_circle)
             pygame.display.flip()
     
@@ -42,9 +42,8 @@ class Game:
                        random.randint(settings.MIN_MASS, settings.MAX_MASS), settings.WHITE)
 
         Game.win.fill(settings.BLACK)
-        player.draw(Game.win)
         Game.process_input()
-        food.draw(Game.win)
+        Game.render
         pygame.display.update()
 
         pygame.quit()
