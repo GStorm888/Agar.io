@@ -41,12 +41,14 @@ class Game:
         food = Object(random.randint(0, settings.WINDOW_WIDTH), random.randint(0, settings.WINDOW_HEIGHT),
                        random.randint(settings.MIN_MASS, settings.MAX_MASS), settings.WHITE)
 
-            # Game.win.fill(settings.BLACK)
-            # player.draw(Game.win)
-            # food.draw(Game.win)
-            # pygame.display.update()
+        Game.win.fill(settings.BLACK)
+        player.draw(Game.win)
+        Game.process_input()
+        food.draw(Game.win)
+        pygame.display.update()
 
         pygame.quit()
         sys.exit()
+
 game = Game()
 game.main_loop
