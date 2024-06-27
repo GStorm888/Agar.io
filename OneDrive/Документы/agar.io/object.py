@@ -46,9 +46,6 @@ class Player(Object):
         for food in list_eat:
             if different_function.get_distans(food.Food.get_pos(), list_pos):
                  food.IsAlive.die
-      
-             
-             
 
     def render(self, x, y, radius, color):
         self.x = settings.WINDOW_WIDTH // 2
