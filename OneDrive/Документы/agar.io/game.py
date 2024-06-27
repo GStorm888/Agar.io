@@ -2,7 +2,7 @@ import pygame
 import random
 import sys
 import settings
-from object import Object
+from object import Object, Player
 
 class Game:
     pygame.init()
@@ -25,28 +25,32 @@ class Game:
             Game.main_window.fill((255, 255, 255))
             pygame.draw.rect(Game.window, settings.RED, Object.object_circle)
             pygame.display.flip()
-    
-    def draw():
+
+    def update_game_state(self):
         ...
 
     def render(self):
-        self.main_window.blit(self.field.render(), (0, 0))
+        main_window_color = pygame.color.THECOLORS["white"]
+        self.main_window.fill(main_window_color)
+
+        Player.draw(self.x, self.y)
+
         pygame.display.update()
 
 
 
-    def main_loop():
-        player = Object(settings.WINDOW_WIDTH // 2, settings.WINDOW_HEIGHT // 2, 20, settings.RED)
-                                # x, y, mass, color
+    def main_loop(self):               # x, y, mass, color
         food = Object(random.randint(0, settings.WINDOW_WIDTH), random.randint(0, settings.WINDOW_HEIGHT),
                        random.randint(settings.MIN_MASS, settings.MAX_MASS), settings.WHITE)
 
-        Game.win.fill(settings.BLACK)
-        Game.process_input()
-        Game.render
-        pygame.display.update()
+        while self.running:
+            self.process_input()
+            self.update_game_state()
+            self.render()
+            self.clock.tick(settings.FPS)
 
         pygame.quit()
+
         sys.exit()
 
 game = Game()
