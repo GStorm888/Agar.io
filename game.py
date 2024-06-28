@@ -8,16 +8,6 @@ class Game:
     pygame.init()
     pygame.display.set_caption("Agar.io")
 
-    import objc
-    from Foundation import NSApplication, NSObject
-
-    class AppDelegate(NSObject):
-        def applicationSupportsSecureRestorableState_(self, app):
-            return True
-    app_delegate = AppDelegate.alloc().init()
-    NSApplication.sharedApplication().setDelegate_(app_delegate)
-
-
     def __init__(self):
         self.main_window = pygame.display.set_mode((settings.WINDOW_WIDTH, settings.WINDOW_HEIGHT))
 
