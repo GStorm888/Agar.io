@@ -5,6 +5,8 @@ BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 MAX_MASS = 30
 MIN_MASS = 1
+FPS = 60
+CELL_SIZE = 100
 COLOR = [BLACK,                  # black
          RED,                    # red
          (0, 0, 255, 255),       # blue
