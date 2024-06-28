@@ -15,7 +15,6 @@ class Field:
             pygame.draw.rect(window, color, (col * settings.CELL_SIZE, row * settings.CELL_SIZE,
                                               settings.CELL_SIZE  - 1, settings.CELL_SIZE - 1))
 
-
     def _init_field():
         ...
 
