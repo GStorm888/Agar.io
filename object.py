@@ -62,18 +62,24 @@ class Player(Object):
         self.y = settings.WINDOW_HEIGHT // 2
         self.radius = 20
         self.color = settings.RED
-        return super().render(y, radius, color)
+        self.player = Player(self.x, self.y, self.radius) 
+        return self.player
     
 
 
 class Food(object):
     def __init__(self):
-          ...
+            self.food = []
 
     def draw(self, centr):
-        self.x = random.randint(settings.WINDOW_WIDTH)
-        self.y = random.randint(settings.WINDOW_HEIGHT)
-        self.radius = random.randint(settings.MIN_MASS, settings.MAX_MASS)
+        while run is True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    run = False
+                food_x = random.randint(0, settings.WINDOW_WIDTH)
+                food_y = random.randint(0, settings.WINDOW_HEIGHT)
+                self.radius = random.randint(settings.MIN_MASS, settings.MAX_MASS)
+                self.food.append([food_x, food_y, self.radius])
         return super()@Object.draw(centr)
     
     def get_pos(self):
