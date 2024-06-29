@@ -55,6 +55,7 @@ class Player(Object):
             if different_function.get_distans(food@Food.get_pos(), list_pos):
                  food@IsAlive.die
                  list_eat.remove(food@Food.get_pos())
+                 self.radius += food@Food.radius()
 
     def render(self, x, y, radius, color):
         self.x = settings.WINDOW_WIDTH // 2
@@ -77,3 +78,6 @@ class Food(object):
     
     def get_pos(self):
         return super()@Object.get_position()
+    
+    def get_radius(self):
+        return self.radius
