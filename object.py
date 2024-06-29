@@ -35,9 +35,10 @@ class Object:
         return self.position
 
 class Player(Object):
-    def __init__(self, x, y, radius, color):
-         super().__init__(x, y, radius, color)
-         self.position = (x, y)
+    def __init__(self, x, y, radius):
+        super().__init__(x, y, radius)
+        self.color = settings.COLOR[2]
+        self.position = (self.x, self.y)
 
     def draw(self, centr):
         self.radius = 8
