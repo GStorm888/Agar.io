@@ -35,9 +35,8 @@ class Object:
         return self.position
 
 class Player(Object):
-    def __init__(self, x, y, radius):
+    def __init__(self, x, y, radius, color):
         super().__init__(x, y, radius)
-        self.color = settings.COLOR[2]
         self.position = (self.x, self.y)
 
     def draw(self, centr):
@@ -47,9 +46,6 @@ class Player(Object):
     def get_pos(self):
         super().get_position()
 
-    def move():
-         ...
-
     def eat(self, list_eat, list_pos):
         for food in list_eat:
             if different_function.get_distans(food@Food.get_pos(), list_pos):
@@ -57,19 +53,17 @@ class Player(Object):
                  list_eat.remove(food@Food.get_pos())
                  self.radius += food@Food.radius()
 
-    def render(self, x, y, radius, color):
+    def render(self):
         self.x = settings.WINDOW_WIDTH // 2
         self.y = settings.WINDOW_HEIGHT // 2
-        self.radius = 20
-        self.color = settings.RED
-        self.player = Player(self.x, self.y, self.radius) 
+        self.radius = 8
+        self.color = settings.COLOR[2]
+        self.player = Player(self.x, self.y, self.radius, self.color) 
         return self.player
-    
-
 
 class Food(object):
     def __init__(self):
-            self.food = []
+            self.food_list = []
 
     def draw(self, centr):
         while run is True:
@@ -79,7 +73,7 @@ class Food(object):
                 food_x = random.randint(0, settings.WINDOW_WIDTH)
                 food_y = random.randint(0, settings.WINDOW_HEIGHT)
                 self.radius = random.randint(settings.MIN_MASS, settings.MAX_MASS)
-                self.food.append([food_x, food_y, self.radius])
+                self.food_list.append([food_x, food_y, self.radius])
         return super()@Object.draw(centr)
     
     def get_pos(self):
