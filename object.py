@@ -14,6 +14,7 @@ class Object:
             self.list_eat = []
             self.field = None
             self.position = None
+            
 
     def draw(self, centr):
         self.radius = random.randint(settings.MIN_MASS, settings.MAX_MASS)
@@ -21,6 +22,7 @@ class Object:
         self.object_circle = pygame.draw.circle(centr, self.color, (self.x, self.y), self.radius)
         return self.list_eat.append(self.object_circle)
 
+    @staticmethod
     def render(x, y, radius, color):
         object = Object(x, y, radius, color)
         return object
@@ -35,13 +37,14 @@ class Object:
         return self.position
 
 class Player(Object):
-    def __init__(self, x, y, radius, color):
+    def __init__(self, x, y, radius):
         super().__init__(x, y, radius)
         self.position = (self.x, self.y)
+        self.color = settings.COLOR[2]
 
     def draw(self, centr):
-        self.radius = 8
-        return super().draw(centr)
+        self.player_circle = pygame.draw.circle(centr, settings.COLOR[2], (self.x, self.y), self.radius)
+        return self.player_circle
     
     def get_pos(self):
         super().get_position()
@@ -57,8 +60,7 @@ class Player(Object):
         self.x = settings.WINDOW_WIDTH // 2
         self.y = settings.WINDOW_HEIGHT // 2
         self.radius = 8
-        self.color = settings.COLOR[2]
-        self.player = Player(self.x, self.y, self.radius, self.color) 
+        self.player = Player(self.x, self.y, self.radius) 
         return self.player
 
 class Food(object):

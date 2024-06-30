@@ -11,9 +11,10 @@ class Game:
 
     def __init__(self):
         self.main_window = settings.MAIN_WINDOW
-        self.player =  Player.render(self)
-        self.field = Field(Player.render(self))
+        self.player = settings.player
+        self.field = settings.field
         self.running = True
+        self.clock = pygame.time.Clock()
 
 
     def process_input(self):
@@ -25,8 +26,7 @@ class Game:
             mouse_pos = pygame.mouse.get_pos()
             Object.center = mouse_pos
             self.main_window.fill((255, 255, 255))
-            pygame.draw.rect(self.main_window, settings.RED,
-                        Object.object_circle)
+            pygame.draw.rect(self.main_window, settings.RED, Player.draw(self, Object.center))
             pygame.display.flip()
 
     def update_game_state(self):
@@ -54,4 +54,4 @@ class Game:
         sys.exit()
 
 game = Game()
-game.main_loop
+game.main_loop()
