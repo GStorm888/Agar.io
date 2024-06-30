@@ -11,16 +11,16 @@ class Game:
 
     def __init__(self):
         self.main_window = settings.MAIN_WINDOW
-        self.player = Player(400, 400, 5) 
-        self.field = Field(Player(400, 400, 5))
+        self.player =  Player.render(self)
+        self.field = Field(Player.render(self))
+        self.running = True
+
 
     def process_input(self):
-        run = True
-
-        while run:
+        while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    run = False
+                    self.running = False
 
             mouse_pos = pygame.mouse.get_pos()
             Object.center = mouse_pos
@@ -30,7 +30,7 @@ class Game:
             pygame.display.flip()
 
     def update_game_state(self):
-        ...
+        self.player@Player.render()
 
     def render(self):
         main_window_color = pygame.color.THECOLORS["white"]
@@ -43,11 +43,7 @@ class Game:
 
 
     def main_loop(self):  
-                 # x, y, mass, color
-        # food = Object(random.randint(0, settings.WINDOW_WIDTH), random.randint(0, settings.WINDOW_HEIGHT),
-        #                random.randint(settings.MIN_MASS, settings.MAX_MASS), settings.WHITE)
-
-        while self.run:
+        while self.running:
             self.process_input()
             self.update_game_state()
             self.render()
@@ -55,7 +51,6 @@ class Game:
 
 
         pygame.quit()
-
         sys.exit()
 
 game = Game()
