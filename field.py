@@ -16,7 +16,6 @@ class Field:
         new_unit@Object.set_position(pos)
         self.units.append(new_unit)
         return True
-
     
     def draw_grid(window, cells):
         for row, col in np.ndindex(cells.shape):
@@ -34,8 +33,7 @@ class Field:
     
     def render_player(self, field):
         player_pos = Player.get_pos()
-        field.blit(self.player.render(), player_pos)
-
+        field.blit(self.player.render(), player_pos)\
     
     def render(self):
         cells = np.zeros(settings.WINDOW_CELLS_FILL)

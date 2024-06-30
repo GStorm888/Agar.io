@@ -42,7 +42,7 @@ class Player(Object):
         self.color = settings.COLOR[2]
 
     def draw(self, centr):
-        self.player_circle = pygame.draw.circle(centr, settings.COLOR[2], (self.x, self.y), self.radius)
+        self.player_circle = pygame.draw.circle(centr, settings.COLOR[2], self.position, self.radius)
         return self.player_circle
     
     def get_pos(self):
