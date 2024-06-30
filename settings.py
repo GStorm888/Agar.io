@@ -11,6 +11,12 @@ MIN_MASS = 1
 FPS = 60
 CELL_SIZE = 100
 WINDOW_CELLS_FILL = (WINDOW_HEIGHT // 10, WINDOW_WIDTH // 10)
+
+PLAYER =  InstanceClass.player
+FIELD = InstanceClass.field
+
+# PLAYER =  InstanceClass.get_player()
+# FIELD = InstanceClass.get_field()
 COLOR = [BLACK,                  # black
         RED,                    # red
         (0, 0, 255, 255),       # blue
@@ -21,5 +27,3 @@ COLOR = [BLACK,                  # black
         (160, 32, 240, 255),    # purple
         (255, 255, 0, 255)]     # yellow
 
-PLAYER =  InstanceClass.get_player()
-FIELD = InstanceClass.get_field()

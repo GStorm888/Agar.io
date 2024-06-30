@@ -1,7 +1,6 @@
 import pygame
 import settings
 import random
-import settings
 import different_function
 from different_function import IsAlive
 
