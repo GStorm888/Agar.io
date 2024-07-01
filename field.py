@@ -9,11 +9,15 @@ class Field:
     def __init__(self, player):
         self.units = []
         self.player =  player
+        self.field = pygame.Surface((settings.WINDOW_WIDTH,
+                                 settings.WINDOW_HEIGHT))
+    @classmethod
+    def set_field(self, field):
+        self.field = field
 
     def put_at(self, new_unit, pos):
-            
-        new_unit@Object.set_field(self)
-        new_unit@Object.set_position(pos)
+        new_unit.set_field(self, self.field)
+        new_unit.set_position(pos)
         self.units.append(new_unit)
         return True
     
@@ -32,13 +36,13 @@ class Field:
             field.blit(unit.render(), unit_pos)
     
     def render_player(self, field):
-        player_pos = Player.get_pos()
-        field.blit(self.player.render(), player_pos)\
+        player_pos = Player.move()
+        field.blit(self.player.render(), player_pos)
     
     def render(self):
         cells = np.zeros(settings.WINDOW_CELLS_FILL)
         self@settings.MAIN_WINDOW.fill(settings.BLACK)
         Field.draw_grid(self@settings.MAIN_WINDOW, cells)
-        field = pygame.Surface((settings.WINDOW_WIDTH,
-                                 settings.WINDOW_HEIGHT))
-        self.render_eat(field)
+        self.render_eat(self.field)
+        self.render_player(self.ield)
+

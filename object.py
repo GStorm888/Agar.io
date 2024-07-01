@@ -32,21 +32,24 @@ class Object:
     def set_position(self, new_position):
         self.position = new_position
 
-    def get_position(self):
+    def get_position(self, pos):
         return self.position
 
 class Player(Object):
-    def __init__(self, x, y, radius):
-        super().__init__(x, y, radius)
-        self.position = (self.x, self.y)
+    def __init__(self, radius):
+        self.radius = radius
         self.color = settings.COLOR[2]
+        self.position = None
 
+    # def get_pos(self):
+    #     return self.move
+    
+    def move(self):
+        self.position = pygame.mouse.get_pos()
+    
     def draw(self, centr):
         self.player_circle = pygame.draw.circle(centr, settings.COLOR[2], self.position, self.radius)
         return self.player_circle
-    
-    def get_pos(self):
-        super().get_position()
 
     def eat(self, list_eat, list_pos):
         for food in list_eat:
@@ -59,7 +62,7 @@ class Player(Object):
         self.x = settings.WINDOW_WIDTH // 2
         self.y = settings.WINDOW_HEIGHT // 2
         self.radius = 8
-        self.player = Player(self.x, self.y, self.radius) 
+        self.player = pygame.Surface((self.x, self.y), pygame.SRCALPHA) 
         return self.player
 
 class Food(object):
