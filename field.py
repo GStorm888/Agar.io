@@ -11,13 +11,8 @@ class Field:
         self.player =  player
         self.field = pygame.Surface((settings.WINDOW_WIDTH,
                                  settings.WINDOW_HEIGHT))
-    @classmethod
-    def set_field(self, field):
-        self.field = field
 
     def put_at(self, new_unit, pos):
-        new_unit.set_field(self, self.field)
-        new_unit.set_position(pos)
         self.units.append(new_unit)
         return True
     

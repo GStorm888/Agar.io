@@ -32,7 +32,7 @@ class Object:
     def set_position(self, new_position):
         self.position = new_position
 
-    def get_position(self, pos):
+    def get_position(self):
         return self.position
 
 class Player(Object):
@@ -40,9 +40,6 @@ class Player(Object):
         self.radius = radius
         self.color = settings.COLOR[2]
         self.position = None
-
-    # def get_pos(self):
-    #     return self.move
     
     def move(self):
         self.position = pygame.mouse.get_pos()
