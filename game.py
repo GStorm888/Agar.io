@@ -35,6 +35,7 @@ class Game:
         self.main_window.fill(main_window_color)
         self.main_window.blit(self.field.render(), (0, 0))
         Player.draw(self@Player.x, self@Player.y)
+        self.field.render
 
         pygame.display.update()
 
