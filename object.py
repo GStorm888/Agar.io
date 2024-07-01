@@ -43,9 +43,11 @@ class Player(Object):
     
     def move(self):
         self.position = pygame.mouse.get_pos()
+        return self.position
     
     def draw(self, centr):
-        self.player_circle = pygame.draw.circle(centr, settings.COLOR[2], self.position, self.radius)
+        self.player_circle = pygame.draw.circle(self.field, settings.COLOR[2],
+                                         centr, self.radius)
         return self.player_circle
 
     def eat(self, list_eat, list_pos):

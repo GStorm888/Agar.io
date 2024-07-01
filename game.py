@@ -18,6 +18,7 @@ class Game:
         self.field = Field(self.player)
         self.food = Food()
         self.field.put_at(self.player, self.pos_player)
+        self.radius = 8
 
     def process_input(self):
         while self.running:
@@ -43,8 +44,9 @@ class Game:
         main_window_color = pygame.color.THECOLORS["white"]
         self.main_window.fill(main_window_color)
         self.field.render()
-        self.main_window.blit(self.field.render(), (0, 0))
-        Player.draw(self@Player.x, self@Player.y)
+        self.main_window.blit(pygame.Surface((settings.WINDOW_WIDTH,
+                                 settings.WINDOW_HEIGHT)), (0, 0))
+        Player.draw(self, self.player.move())
         pygame.display.update()
         print("render")
 

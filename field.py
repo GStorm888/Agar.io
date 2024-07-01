@@ -29,12 +29,13 @@ class Field:
 
     def render_eat(self, field):
         for unit in self.units:
-            unit_pos = Food.get_pos(unit, self.units_pos)
+            # unit_pos = Food.get_pos(unit, self.units_pos)
+            unit_pos = (0, 0)
             field.blit(unit.render(), unit_pos)
     
     def render_player(self, field):
-        player_pos = Player.move()
-        field.blit(self.player.render(), player_pos)
+        player_pos = Player.move(self)
+        field.blit(self.field, player_pos)
     
     def render(self):
         cells = np.zeros(settings.WINDOW_CELLS_FILL)
