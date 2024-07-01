@@ -56,8 +56,8 @@ class Player(Object):
                  self.radius += food@Food.radius()
 
     def render(self):
-        self.x = settings.WINDOW_WIDTH // 2
-        self.y = settings.WINDOW_HEIGHT // 2
+        self.x = random.randint(0, settings.WINDOW_WIDTH)
+        self.y = random.randint(0, settings.WINDOW_HEIGHT)
         self.radius = 8
         self.player = pygame.Surface((self.x, self.y), pygame.SRCALPHA) 
         return self.player
@@ -65,6 +65,7 @@ class Player(Object):
 class Food(object):
     def __init__(self):
             self.food_list = []
+            self.food_list_pos = []
 
     def draw(self, centr):
         while run is True:
@@ -75,10 +76,17 @@ class Food(object):
                 food_y = random.randint(0, settings.WINDOW_HEIGHT)
                 self.radius = random.randint(settings.MIN_MASS, settings.MAX_MASS)
                 self.food_list.append([food_x, food_y, self.radius])
+                self.food_list_pos.append([food_x, food_y])
         return super()@Object.draw(centr)
     
-    def get_pos(self):
-        return super()@Object.get_position()
+    def can_eat(self, list_pos, food_list_pos):
+        for food_pos in food_list_pos:
+            if different_function.get_distans(food_pos, list_pos):
+                self.position = food_pos
+
+    def get_pos(self, unit, food_list_pos):
+        self.position_unit = food_list_pos[unit]
+        return self.position
     
     def get_radius(self):
         return self.radius

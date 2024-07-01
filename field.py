@@ -11,6 +11,8 @@ class Field:
         self.player =  player
         self.field = pygame.Surface((settings.WINDOW_WIDTH,
                                  settings.WINDOW_HEIGHT))
+        self.units_pos = [unit for unit in self.units if unit@IsAlive.is_alive()]
+
 
     def put_at(self, new_unit, pos):
         self.units.append(new_unit)
@@ -27,7 +29,7 @@ class Field:
 
     def render_eat(self, field):
         for unit in self.units:
-            unit_pos = unit@Food.get_pos()
+            unit_pos = Food.get_pos(unit, self.units_pos)
             field.blit(unit.render(), unit_pos)
     
     def render_player(self, field):
@@ -36,8 +38,8 @@ class Field:
     
     def render(self):
         cells = np.zeros(settings.WINDOW_CELLS_FILL)
-        self@settings.MAIN_WINDOW.fill(settings.BLACK)
-        Field.draw_grid(self@settings.MAIN_WINDOW, cells)
+        settings.MAIN_WINDOW.fill(settings.BLACK)
+        Field.draw_grid(settings.MAIN_WINDOW, cells)
         self.render_eat(self.field)
-        self.render_player(self.ield)
+        self.render_player(self.field)
 
