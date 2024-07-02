@@ -52,7 +52,7 @@ class Player(Object):
 
     def eat(self, list_eat, list_pos):
         for food in list_eat:
-            if different_function.get_distans(food@Food.get_pos(), list_pos):
+            if different_function.get_distance(food@Food.get_pos(), list_pos):
                  food@IsAlive.die
                  list_eat.remove(food@Food.get_pos())
                  self.radius += food@Food.radius()
@@ -83,7 +83,7 @@ class Food(object):
     
     def can_eat(self, list_pos, food_list_pos):
         for food_pos in food_list_pos:
-            if different_function.get_distans(food_pos, list_pos):
+            if different_function.get_distance(food_pos, list_pos):
                 self.position = food_pos
 
     def get_pos(self, unit, food_list_pos):

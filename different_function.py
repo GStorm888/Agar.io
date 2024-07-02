@@ -1,4 +1,4 @@
-def get_distans(list_eat: list, list_pos: list):
+def get_distance(list_eat: list, list_pos: list):
     if list_eat[0] - list_pos[0] < 0: can_eat = True 
     elif list_eat[0] - list_pos[0] > 0: can_eat = False
     if list_eat[1] - list_pos[1] < 0: can_eat = True

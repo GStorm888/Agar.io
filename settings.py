@@ -9,7 +9,6 @@ MIN_MASS = 1
 FPS = 60
 CELL_SIZE = 100
 WINDOW_CELLS_FILL = (WINDOW_HEIGHT // 10, WINDOW_WIDTH // 10)
-
 COLOR = [pygame.color.THECOLORS["black"],
          pygame.color.THECOLORS["red"], 
          pygame.color.THECOLORS["blue"],
